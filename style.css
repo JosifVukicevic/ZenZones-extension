@@ -1,0 +1,138 @@
+body {
+    background-image: url('Images/background-1.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.weather-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.weather-tab img {
+    width: 3%;
+    height: 3%;
+    padding-top: 45px;
+    padding-left: 45px;
+}
+
+.weather-tab {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-data h1 {
+    margin-bottom: 0;
+}
+
+.zen_zones-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    flex-direction: column;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 300px;
+}
+
+.search-icon {
+    margin-right: 5px;
+}
+
+.search-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+input[type="text"] {
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    font-size: 16px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.zen_zones-div h1 {
+    font-size: 46px;
+}
+
+.zen_zones-div p {
+    margin-top: 30px;
+}
+
+.zen_zones-div p {
+    font-size: 28px;
+}
+
+.first-search-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.icons span {
+    margin-right: 40px;
+}
+
+.icons span img {
+    width: 25px;
+    height: 27px;
+    cursor: pointer;
+}
+
+/* Hover iznad ikonica (naslov ikonica) */
+
+.icons span {
+    position: relative;
+  }
+
+  .icons span:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(228, 214, 214, 0.548);
+    color: red;
+    font-size: 30px;
+    padding: 7px 20px;
+    border-radius: 4px;
+    pointer-events: none;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    margin-bottom: 4px;
+    transition: opacity 0.2s, visibility 0s linear 0.2s;
+  }
+
+  .icons span:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  
