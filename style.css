@@ -6,6 +6,8 @@ body {
     background-size: cover;
     color: white;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .weather-data {
@@ -135,4 +137,55 @@ input[type="text"] {
     transition-delay: 0s;
   }
 
-  
+  .circle {
+    width: 310px;
+    height: 310px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .stopwatch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wellness-tip-box {
+    visibility: hidden;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    padding: 10px;
+    background-color: #060616ee;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 5px;
+}
+
+#weather-wellness {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.parent-wellnessBox {
+    padding-right: 45px;
+    padding-top: 28px;
+}
+
+.break-box {
+    display: none;
+    position: absolute;
+    top: 10px; /* Promenite ovu vrednost da biste prilagodili poziciju */
+    left: 50%; /* Centrirajte box horizontalno */
+    transform: translateX(-50%); /* Centrirajte box horizontalno */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}

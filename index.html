@@ -15,16 +15,24 @@
 </head>
 <body>
 
-    <div class="weather-tab">
-        <img src="Images/Icons/sun.png" alt="Error">
-        <div class="weather-data">
-            <h1>40.4 C</h1>
-            <h3>Podgorica, ME</h3>
+    <div id="weather-wellness">
+        <div class="weather-tab" id="weather-tab">
+            <img src="" alt="Error" id="weather-icon-data">
+            <div class="weather-data">
+                <h1 id="temperature"></h1>
+                <h3 id="location"></h3>
+            </div>
+        </div>
+
+        <div class="parent-wellnessBox">
+            <div class="wellness-tip-box" id="wellness-tip-box">
+                <p id="wellness-tip-content"></p>
+            </div>
         </div>
     </div>
 
     <div class="zen_zones-div">
-        <h1>10:22</h1>
+        <h1 id="time"></h1>
         <img src="Images/logo.png">
         <p>Good morning, Tiger!</p>
     </div>
@@ -43,13 +51,23 @@
         <span><img src="Images/Icons/weather.png" title="Weather" alt="Error" id="weather-icon"></span>
         <span><img src="Images/Icons/wellness-tip.png" title="Wellness tip" alt="Error" id="wellness-icon"></span>
         <span><img src="Images/Icons/break.png" title="Break settings" alt="Error" id="break-icon"></span>
-        <span><img src="Images/Icons/breathing-exercise.png" title="Breathing exercise" alt="Error" id="exercise"></span>
+        <div class="break-box" id="break-box">
+            <p>Remind me to take break every::</p>
+            <select id="break-options">
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">1 hour</option>
+                <option value="90">1 hour 30 minutes</option>
+            </select>
+        </div>
+        <span><a href="breathing-ex.html"><img src="Images/Icons/breathing-exercise.png" title="Breathing exercise" alt="Error" id="exercise"></a></span>
         <span><img src="Images/Icons/journal.png" title="Gratitude journal" alt="Error" id="journal-icon"></span>
         <span><img src="Images/Icons/photo-shuffle.png" title="Photo rotation" alt="Error" id="photos-icon"></span>
     </div>
 
 
     <script src="script.js"></script>
+    <script src="geolocation.js"></script>
     
 </body>
 </html>
