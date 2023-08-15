@@ -29,6 +29,7 @@ body {
 .weather-tab {
     display: flex;
     flex-direction: row;
+    visibility: hidden;
 }
 
 .weather-data h1 {
@@ -48,10 +49,11 @@ body {
     align-items: center;
     padding: 5px;
     width: 300px;
+    border-bottom: 1px solid white;
 }
 
 .search-icon {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .search-icon i {
@@ -65,14 +67,13 @@ input[type="text"] {
     flex: 1;
     background: transparent;
     font-size: 16px;
-    border-bottom: 1px solid white;
-    padding-bottom: 5px;
     color: white;
 }
 
 #main-search::placeholder {
     color: white;
 }
+
 
 .zen_zones-div h1 {
     font-size: 46px;
@@ -90,7 +91,8 @@ input[type="text"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 40px;
+    margin-bottom: 5px;
 }
 
 .icons {
@@ -144,8 +146,8 @@ input[type="text"] {
   }
 
   .circle {
-    width: 310px;
-    height: 310px;
+    width: 360px;
+    height: 360px;
     border: 2px solid white;
     border-radius: 50%;
     margin: 0;
@@ -153,6 +155,15 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .circle h3 {
+    font-size: 22px;
+    margin-bottom: 0;
+  }
+
+  .circle h1 {
+    font-size: 48px;
   }
 
   .stopwatch {
@@ -186,14 +197,38 @@ input[type="text"] {
 }
 
 .break-box {
-    display: none;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  margin: 0;
+  background-color: #0b0b27ee;
+}
+
+#break-options {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+}
+
+#break-options option {
+  font-size: 14px;
+}
+
+#center-break-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #breathing-body {
@@ -266,3 +301,34 @@ input[type="text"] {
     scrollbar-color: #66a3d2 #2c3e50;
   }
   
+#weather-icon-data {
+  width: 50px;
+  height: 50px;
+}
+
+#button-start {
+  width: 85px;
+  height: 37px;
+  background-color: rgb(75, 122, 184);
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+  font-size: 18px;
+}
+
+#button-start:hover {
+  background-color: rgba(38, 93, 166, 0.86);
+  cursor: pointer;
+}
+
+.fixed-search-icons {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+.fixed-h1 {
+  position: fixed;
+  top: 0;
+  margin-top: 70px;
+}

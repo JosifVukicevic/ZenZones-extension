@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Zen Zones extension</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Oval&family=Roboto&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nova+Oval&family=Roboto&family=Sedgwick+Ave+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+
 <body>
 
     <div id="weather-wellness">
@@ -30,29 +36,15 @@
             </div>
         </div>
     </div>
-
-    <div class="zen_zones-div">
-        <h1 id="time"></h1>
-        <img src="Images/logo.png">
-        <p>Good morning, Tiger!</p>
-    </div>
-
-    <div class="first-search-div">
-        <div class="search-bar">
-            <div class="search-icon">
-                <span class="material-symbols-outlined"></span>
-            </div>
-            <input type="text" placeholder="Search" id="main-search">
+    <div id="center-break-box">
+        <div class="zen_zones-div">
+            <h1 id="time"></h1>
+            <img src="Images/logo.png">
+            <p id="tiger-txt">Good morning, Tiger!</p>
         </div>
-    </div>
 
-    <div class="icons">
-        <span><img src="Images/Icons/clock.png" title="Clock" alt="Error" id="clock-icon"></span>
-        <span><img src="Images/Icons/weather.png" title="Weather" alt="Error" id="weather-icon"></span>
-        <span><img src="Images/Icons/wellness-tip.png" title="Wellness tip" alt="Error" id="wellness-icon"></span>
-        <span><img src="Images/Icons/break.png" title="Break settings" alt="Error" id="break-icon"></span>
         <div class="break-box" id="break-box">
-            <p>Remind me to take break every::</p>
+            <p>Remind me to take break every:</p>
             <select id="break-options">
                 <option value="30">30 minutes</option>
                 <option value="45">45 minutes</option>
@@ -60,21 +52,38 @@
                 <option value="90">1 hour 30 minutes</option>
             </select>
         </div>
-        <span><a href="breathing-ex.html"><img src="Images/Icons/breathing-exercise.png" title="Breathing exercise" alt="Error" id="exercise"></a></span>
-        <span><img src="Images/Icons/journal.png" title="Gratitude journal" alt="Error" id="journal-icon"></span>
-        <span><img src="Images/Icons/photo-shuffle.png" title="Photo rotation" alt="Error" id="photos-icon"></span>
+
+        <div class="first-search-div">
+            <div class="search-bar">
+                <div class="search-icon">
+                    <span class="fa fa-search form-control-feedback"></span>
+                </div>
+                <input type="text" placeholder="Search" id="main-search">
+            </div>
+        </div>
+    </div>
+
+    <div class="icons">
+        <span><img src="Images/Icons/clock.png" data-title="Clock" alt="Error" id="clock-icon"></span>
+        <span><img src="Images/Icons/weather.png" data-title="Weather" alt="Error" id="weather-icon"></span>
+        <span><img src="Images/Icons/wellness-tip.png" title="Wellness tip" alt="Error" id="wellness-icon"></span>
+        <span><img src="Images/Icons/break.png" data-title="Break settings" alt="Error" id="break-icon"></span>
+        <span><a href="breathing-ex.html"><img src="Images/Icons/breathing-exercise.png" data-title="Breathing exercise" alt="Error" id="exercise"></a></span>
+        <span><img src="Images/Icons/journal.png" data-title="Gratitude journal" alt="Error" id="journal-icon"></span>
+        <span><img src="Images/Icons/photo-shuffle.png" data-title="Photo rotation" alt="Error" id="photos-icon"></span>
     </div>
 
     <div class="notes-container" id="notes-container">
         <div class="notes">
         </div>
         <input type="text" id="noteInput" placeholder="Today I am grateful for...">
-      </div>
+    </div>
 
 
     <script src="script.js"></script>
     <script src="geolocation.js"></script>
     <script src="script-for-journal.js"></script>
-    
+
 </body>
+
 </html>

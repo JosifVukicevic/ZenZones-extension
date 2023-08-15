@@ -18,6 +18,50 @@ photosIcon.addEventListener('click', () => {
     currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
     const imagePath = imagePaths[currentImageIndex];
     bodyELemenet.style.backgroundImage = `url(${imagePath})`;
+
+    let noteInput = document.getElementById('noteInput');
+
+    if (imagePath.includes("background-1")) {
+        notes.style.backgroundColor = "#0b0b27ee";
+        breakBox.style.backgroundColor = "#0b0b27ee";
+        wellnessTipBox.style.backgroundColor = "#0b0b27ee";
+    } else if (imagePath.includes("background-2")) {
+        notes.style.backgroundColor = "#2e332f";
+        breakBox.style.backgroundColor = "#2e332f";
+        wellnessTipBox.style.backgroundColor = "#2e332f";
+    } else if (imagePath.includes("background-3")) {
+        notes.style.backgroundColor = "#c25d2b";
+        breakBox.style.backgroundColor = "#c25d2b";
+        wellnessTipBox.style.backgroundColor = "#c25d2b";
+    } else if (imagePath.includes("background-4")) {
+        notes.style.backgroundColor = "#1c4b57";
+        breakBox.style.backgroundColor = "#1c4b57";
+        wellnessTipBox.style.backgroundColor = "#1c4b57";
+    } else if (imagePath.includes("background-5")) {
+        notes.style.backgroundColor = "#477480";
+        breakBox.style.backgroundColor = "#477480";
+        wellnessTipBox.style.backgroundColor = "#477480";
+    } else if (imagePath.includes("background-6")) {
+        notes.style.backgroundColor = "#243e45";
+        breakBox.style.backgroundColor = "#243e45";
+        wellnessTipBox.style.backgroundColor = "#243e45";
+    } else if (imagePath.includes("background-7")) {
+        notes.style.backgroundColor = "#c47972";
+        breakBox.style.backgroundColor = "#c47972";
+        wellnessTipBox.style.backgroundColor = "#c47972";
+    } else if (imagePath.includes("background-8")) {
+        notes.style.backgroundColor = "#bd473c";
+        breakBox.style.backgroundColor = "#bd473c";
+        wellnessTipBox.style.backgroundColor = "#bd473c";
+    } else if (imagePath.includes("background-9")) {
+        notes.style.backgroundColor = "#a876a2";
+        breakBox.style.backgroundColor = "#a876a2";
+        wellnessTipBox.style.backgroundColor = "#a876a2";
+    } else if (imagePath.includes("background-10")) {
+        notes.style.backgroundColor = "#0c1a0a";
+        breakBox.style.backgroundColor = "#0c1a0a";
+        wellnessTipBox.style.backgroundColor = "#0c1a0a";
+    }
 });
 
 // Prikaz i funkcionalnost sata
@@ -29,10 +73,28 @@ clockIcon.addEventListener('click', () => {
     isClockVisible = !isClockVisible;
     time.style.visibility = isClockVisible ? 'visible' : 'hidden';
 
+    tigerText = document.getElementById('tiger-txt');
+
     if (isClockVisible) {
         const currentTime = new Date().toLocaleTimeString();
         time.textContent = currentTime;
     }
+
+    // Ispisivanje poruke jutro, dan, noc
+
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    const formattedTime = currentTime.toLocaleTimeString();
+
+    if (currentHour > 4 && currentHour < 12) {
+        tigerText.textContent = 'Good morning, Tiger!';
+    } else if (currentHour < 20) {
+        tigerText.textContent = 'Good day, Tiger!';
+    } else {
+        tigerText.textContent = 'Good evening, Tiger!';
+    }
+
+    time.textContent = formattedTime;
 });
 
 // Prikaz weather taba
@@ -57,9 +119,36 @@ wellnessIcon.addEventListener('click', () => {
     wellnessTipContent.textContent = 'Daily wellness tip!';
 
     setTimeout(() => {
+        // Pojavi se jednom, ako treba vise puta staviti visibility 'hidden'
         wellnessTipBox.style.display = 'none';
     }, 30000);
 });
+
+/*
+
+const time = document.getElementById('time');
+const clockIcon = document.getElementById('clock-icon');
+let isClockVisible = false;
+let intervalId; // Dodali smo varijablu za spremanje ID intervala
+
+clockIcon.addEventListener('click', () => {
+    isClockVisible = !isClockVisible;
+    time.style.visibility = isClockVisible ? 'visible' : 'hidden';
+
+    if (isClockVisible) {
+        updateTime(); // Ažuriramo vrijeme odmah pri kliku
+        intervalId = setInterval(updateTime, 1000); // Pozivamo updateTime svake sekunde
+    } else {
+        clearInterval(intervalId); // Brišemo interval kad je sat skriven
+    }
+});
+
+function updateTime() {
+    const currentTime = new Date().toLocaleTimeString();
+    time.textContent = currentTime;
+}
+
+*/
 
 /* Break box */
 
@@ -76,6 +165,7 @@ breakOptions.addEventListener('change', () => {
     breakBox.style.visibility = 'hidden';
 });
 
+
 /* Notes container */ 
 
 const notes = document.getElementById('notes-container');
@@ -87,58 +177,17 @@ journalIcon.addEventListener('click', () => {
     notes.style.visibility = isNotesVisible ? 'visible' : 'hidden';
 });
 
-if (notes.style.visibility === 'visible') {
-    switch (imagePath) {
-        case "1":
-            notes.style.backgroundColor = "green";
-            break;
-        case "2":
-            notes.style.backgroundColor = "#2e332f";
-            break;
-        case "3":
-            notes.style.backgroundColor = "#c25d2b";
-            break;
-        case "4":
-            notes.style.backgroundColor = "#1c4b57";
-            break;
-        case "5":
-            notes.style.backgroundColor = "#477480";
-            break;
-        case "6":
-            notes.style.backgroundColor = "#243e45";
-            break;
-        case "7":
-            notes.style.backgroundColor = "#c47972";
-            break;
-        case "8":
-            notes.style.backgroundColor = "#bd473c";
-            break;
-        case "9":
-            notes.style.backgroundColor = "#a876a2";
-            break;
-        case "10":
-            notes.style.backgroundColor = "#0c1a0a";
-            break;
-        default:
-            notes.style.backgroundColor = "#0b0b27ee";
-            break;
+
+const inputElement = document.getElementById('main-search');
+
+inputElement.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        const searchQuery = inputElement.value;
+        if (searchQuery.trim() !== '') {
+            const encodedQuery = encodeURIComponent(searchQuery);
+            window.location.href = `https://www.google.com/search?q=${encodedQuery}`;
+        }
     }
-  }
+});
 
-
-  /* ............ */
-   
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('main-search');
-    const searchForm = document.querySelector('.search-bar');
-  
-    searchForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const query = searchInput.value.trim();
-      if (query) {
-        const googleURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-        window.open(googleURL, '_blank');
-      }
-    });
-  });
   
