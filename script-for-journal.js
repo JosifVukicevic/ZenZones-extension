@@ -7,7 +7,7 @@ noteInput.addEventListener("keydown", function(event) {
     const noteElement = document.createElement("div");
     noteElement.className = "note";
     noteElement.textContent = noteText;
-    notesContainer.prepend(noteElement);
+    notesContainer.appendChild(noteElement);
     noteInput.value = "";
   }
 });

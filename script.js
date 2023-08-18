@@ -76,8 +76,17 @@ clockIcon.addEventListener('click', () => {
     tigerText = document.getElementById('tiger-txt');
 
     if (isClockVisible) {
+        updateTime();
         const currentTime = new Date().toLocaleTimeString();
         time.textContent = currentTime;
+
+        setInterval(updateTime, 1000);
+    }
+
+    function updateTime() {
+        const currentTime = new Date();
+        const formattedTime = currentTime.toLocaleTimeString();
+        time.textContent = formattedTime;
     }
 
     // Ispisivanje poruke jutro, dan, noc
@@ -151,9 +160,10 @@ function updateTime() {
 */
 
 /* Break box */
-
+/*
 const breakBox = document.getElementById('break-box');
 const breakOptions = document.getElementById('break-options');
+const messageBreakBox = document.getElementById('messageBox-break');
 
 breakIcon.addEventListener('click', () => {
     breakBox.style.visibility = 'visible';
@@ -164,6 +174,36 @@ breakOptions.addEventListener('change', () => {
     alert(`Selected break: ${selectedOption} minutes.`);
     breakBox.style.visibility = 'hidden';
 });
+*/
+
+const breakBox = document.getElementById('break-box');
+const breakOptions = document.getElementById('break-options');
+const messageBreakBox = document.getElementById('messageBox-break');
+
+let timeoutId;
+
+breakIcon.addEventListener('click', () => {
+    breakBox.style.visibility = 'visible';
+    
+    const selectedOption = parseInt(breakOptions.value, 10);
+    if (!isNaN(selectedOption)) {
+        timeoutId = setTimeout(() => {
+            messageBreakBox.style.visibility = 'visible';
+            setTimeout(() => {
+                messageBreakBox.style.visibility = 'hidden';
+            }, 40000);
+        }, selectedOption * 60000); // Pretvaranje minuta u milisekunde
+    }
+});
+
+breakOptions.addEventListener('change', () => {
+    const selectedOption = breakOptions.value;
+    alert(`Selected break: ${selectedOption} minutes.`);
+    breakBox.style.visibility = 'hidden';
+    // Ponistavanje prethodno postavljenog timeouta ako postoji
+    clearTimeout(timeoutId);
+});
+
 
 
 /* Notes container */ 
@@ -177,6 +217,7 @@ journalIcon.addEventListener('click', () => {
     notes.style.visibility = isNotesVisible ? 'visible' : 'hidden';
 });
 
+// Google search
 
 const inputElement = document.getElementById('main-search');
 
