@@ -1,11 +1,11 @@
-const bigCircle = document.querySelector('.circle');
-const smallCircle = document.querySelector('.outer-circle');
-const startButton = document.getElementById('button-start');
+const bigCircle = document.querySelector('.big-circle');
+        const smallCircle = document.querySelector('.small-circle');
+        const instruction = document.querySelector('.instruction');
 
-let angle = 0;
+        let angle = 0;
         let interval;
 
-        startButton.addEventListener('click', function() {
+        bigCircle.addEventListener('click', function() {
             if (interval) {
                 clearInterval(interval);
                 instruction.textContent = "Click to Start";

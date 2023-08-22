@@ -91,6 +91,7 @@ clockIcon.addEventListener('click', () => {
 
     // Ispisivanje poruke jutro, dan, noc
 
+/*
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
     const formattedTime = currentTime.toLocaleTimeString();
@@ -104,6 +105,43 @@ clockIcon.addEventListener('click', () => {
     }
 
     time.textContent = formattedTime;
+});
+
+*/
+
+const messages = [
+    'Good morning, champion!',
+    'Rise and shine, warrior!',
+    'Hey there, rockstar!',
+    'Start your day strong, ace!',
+    'Seize the day, captain!',
+    'Another day to shine, superstar!',
+    "Let's conquer today, hero!",
+    'Embrace the day, trailblazer!',
+    'Make today count, maverick!',
+    'Good morning, legend!',
+    "Today's a new opportunity, pioneer!",
+    "Go get 'em, tiger!",
+    'Shine bright today, diamond!',
+    'Own the day, mastermind!',
+    'Rise to the occasion, leader!'
+];
+
+function updateMessage() {
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    const formattedTime = currentTime.toLocaleTimeString();
+
+    const messageIndex = currentHour % messages.length;
+    tigerText.textContent = messages[messageIndex];
+    time.textContent = formattedTime;
+}
+
+updateMessage();
+
+// Postavljanje intervala za svakih 24 sata (86400000 ms)
+setInterval(updateMessage, 86400000);
+
 });
 
 // Prikaz weather taba
@@ -182,19 +220,12 @@ const messageBreakBox = document.getElementById('messageBox-break');
 
 let timeoutId;
 
-breakIcon.addEventListener('click', () => {
-    breakBox.style.visibility = 'visible';
-    
-    const selectedOption = parseInt(breakOptions.value, 10);
-    if (!isNaN(selectedOption)) {
-        timeoutId = setTimeout(() => {
-            messageBreakBox.style.visibility = 'visible';
-            setTimeout(() => {
-                messageBreakBox.style.visibility = 'hidden';
-            }, 40000);
-        }, selectedOption * 60000); // Pretvaranje minuta u milisekunde
-    }
-});
+function showBreakMessage() {
+    messageBreakBox.style.visibility = 'visible';
+    setTimeout(() => {
+        messageBreakBox.style.visibility = 'hidden';
+    }, 40000);
+}
 
 breakOptions.addEventListener('change', () => {
     const selectedOption = breakOptions.value;
@@ -202,7 +233,21 @@ breakOptions.addEventListener('change', () => {
     breakBox.style.visibility = 'hidden';
     // Ponistavanje prethodno postavljenog timeouta ako postoji
     clearTimeout(timeoutId);
+    
+    if (selectedOption > 0) {
+        timeoutId = setTimeout(showBreakMessage, selectedOption * 60000); // Pretvaranje minuta u milisekunde
+    }
 });
+
+breakIcon.addEventListener('click', () => {
+    breakBox.style.visibility = 'visible';
+    
+    const selectedOption = parseInt(breakOptions.value, 10);
+    if (!isNaN(selectedOption) && selectedOption > 0) {
+        timeoutId = setTimeout(showBreakMessage, selectedOption * 60000); // Pretvaranje minuta u milisekunde
+    }
+});
+
 
 
 

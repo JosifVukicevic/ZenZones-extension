@@ -1,6 +1,6 @@
 // Funkcija za dobijanje vremenske prognoze na osnovu geolokacije
 function getWeatherByLocation(latitude, longitude) {
-    const apiKey = 'c1b5167a34ad4408a3c121200232803'; // Zamenite sa vašim API ključem
+    const apiKey = '54f8adfea7a9457b89b75038231808';
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}&aqi=no`;
 
     // Unutar .then(data => { ... }) bloka u funkciji getWeatherByLocation
